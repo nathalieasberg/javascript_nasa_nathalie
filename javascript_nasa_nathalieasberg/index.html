@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasa Mars Rovers</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mulish:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <!-- Sätter en div i headern så att innehållet kan ha en max-width medan själva headern har width 100%, pga att jag vill att bakgrundsfärgen ska ta upp hela bredden av skärmen. Har tänkt samma med .container och denns innehåll-->
+        <div class="headerContent">
+            <h1>Nasa mars rovers</h1>
+            <label class="switchBtn" >
+                <input type="checkbox" id="switchBtn">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </header>
+    <div class="container">
+        <div class="inputContainer">
+                <h2>Choose your space name</h2>
+                <label for="inputText">Space Name (must be 3 characters)</label>
+                <input class="textInput" id="inputText" type="text">
+            <button id="btn_add" disabled>Show my name</button>
+        </div>
+
+        <div class="contentContainer">
+            <h2>Welcome
+                <span id="name"></span>
+                </h2>
+            <section class="cardContainer">
+                <!--Innehåll läggs till i javascript-->
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

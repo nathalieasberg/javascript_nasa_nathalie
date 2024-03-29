@@ -1,0 +1,232 @@
+@import 'sass/variables';
+
+*,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    transition: 0.3s;
+    font-family: mulish, sans-serif;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+h2{
+    margin: 1rem 0;
+}
+
+header {
+    background-color: $secondary-color-lightmode;
+    @media (min-width:1130px) {
+        margin: auto;
+        max-width: 100%;
+    }
+    .headerContent{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        flex: 0 0 100%;
+        @media (min-width:1130px) {
+            margin: auto;
+            max-width: 1200px;
+        }
+    }
+}
+.container {
+    padding: 2rem 1rem;
+    background-color: $primary-color-lightmode;
+
+    @media (min-width:605px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2rem;
+
+    }
+    @media (min-width:1130px) {
+        width: 100%;
+        margin: auto;
+        padding: 2rem 2rem 6rem 2rem;
+    }
+    
+    .inputContainer{
+        max-width: 600px;
+        background-color: $secondary-color-lightmode;
+        padding: 1rem;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        .textInput{
+            width: 100%;
+            height: 30px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+            border: none;
+            
+        }
+        #btn_add{
+            padding: 1rem;
+            border: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            font-weight: 700;
+            background-color: $thirdary-color-lightmode;
+        }
+    }
+    .contentContainer{
+        width: 100%;
+        @media (min-width:1130px) {
+            max-width: 1400px;
+        }
+        h2{
+            text-align: center;
+        }
+        .cardContainer{
+            padding: 1rem 0;
+            
+            @media (min-width:605px) {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .card{
+                padding: 1rem .5rem .5rem .5rem;
+                background-color: $secondary-color-lightmode;
+                border-radius: 5px;
+                text-align: center;
+                margin-bottom: 1rem;
+
+                @media (min-width:605px) {
+                    // För att få 2 cards på rad
+                    flex: 0 0 calc((100%/2) - (((2 - 1) / 2) * 1rem));
+                    
+                }
+                @media (min-width:1130px) {
+                    // För att få 4 cards på rad
+                    flex: 0 0 calc((100%/4) - (((4 - 1) / 4) * 1rem));
+                }
+                .imgHolder{
+                    margin: 0.5rem 0;
+                    
+                    .image{
+                        width: 100%;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.switchBtn {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+
+    //Tar bort default checkbox
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+
+        &:checked {
+
+            //När den är ikryssad 
+            + {
+                .slider {
+                    background-color: $thirdary-color-darkmode;
+
+                    &:before {
+                        //Påverkar cirkeln i toggle
+                        transform: translateX(23px); //hur långt cirkeln förflyttar sig
+                        background-color: $primary-color-lightmode;
+                    }
+                }
+            }
+        }
+
+        &:focus {
+            //När den är markerad/klickad på
+            + {
+                .slider {
+                    //Väljer alla .slider som är placerade direkt efter input
+                    //Skugga när man klickar
+                    box-shadow: 0 0 2px $primary-color-lightmode;
+                }
+            }
+        }
+    }
+
+    /* slider */
+    .slider {
+        //Lila BG 
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $thirdary-color-lightmode;
+        border-radius: 34px;
+        transition: .4s;
+
+        &:before {
+            //Cirkeln i slider
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: $text-primary-darkmode;
+            border-radius: 50%;
+            transition: .4s;
+        }
+    }
+}
+
+//Klass för darkmode 
+.dark {
+    header{
+        background-color: $secondary-color-darkmode;
+        h1{
+            color: $text-primary-darkmode;
+        }
+    }
+    .container{
+        background-color: $primary-color-darkmode;
+
+        .inputContainer{
+            background-color: $secondary-color-darkmode;
+            color: $text-primary-darkmode;
+            #btn_add{
+                background-color: $thirdary-color-darkmode;
+            }
+        }
+        .cardContainer{
+            .card{
+                background-color: $secondary-color-darkmode;
+            }
+        }
+    }
+    p{
+        color: $text-primary-darkmode;
+    }
+    h2{
+        color: $text-primary-darkmode;
+    }
+    h3{
+        color: $text-primary-darkmode;
+    }
+}
